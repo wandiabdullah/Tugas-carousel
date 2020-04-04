@@ -6,8 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
-
-
 void main() {
   runApp(MaterialApp(
     title: 'Flutter Tutorial',
@@ -20,6 +18,29 @@ class TutorialHome extends StatelessWidget {
   Widget build(BuildContext context) {
     // Scaffold is a layout for the major Material Components.
     return Scaffold(
+
+      endDrawer: Drawer(
+        child: ListView(
+          children: <Widget>[
+            DrawerHeader(
+              child: Text('Menu Carousel Wandi'),
+              decoration: BoxDecoration(
+                color: Colors.orange,
+              ),
+            ),
+            ListTile(
+              title: Text("Menu"),
+              trailing: Icon(Icons.menu),
+            ),
+            ListTile(
+              title: Text("Home"),
+              trailing: Icon(Icons.home),
+
+            ),
+          ],
+        ),
+      ),
+
       appBar: AppBar(
         backgroundColor: Colors.orange,
         elevation: 0,
@@ -34,6 +55,8 @@ class TutorialHome extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+
+
             buildHeader(),
             Container(
               margin: const EdgeInsets.all(16.0),
@@ -45,6 +68,7 @@ class TutorialHome extends StatelessWidget {
             ),
 
             buildCarouselSlider(),
+
 
             buildTitle('Social Media'),
             Row(
@@ -217,3 +241,4 @@ class _MyImageScreen extends State<ImageScreen> {
         body: Image.network(url, width: double.infinity));
   }
 }
+
